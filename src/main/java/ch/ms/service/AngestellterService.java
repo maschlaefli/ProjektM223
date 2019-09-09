@@ -1,7 +1,9 @@
 package ch.ms.service;
 
 import ch.ms.model.Kunde;
+import ch.ms.repository.AdresseRepository;
 import ch.ms.repository.AngestellterRepository;
+import ch.ms.repository.FirmaRepository;
 import ch.ms.repository.KundeRepository;
 import org.springframework.stereotype.Service;
 
@@ -13,10 +15,14 @@ public class AngestellterService {
 
     private KundeRepository kundeRepository;
     private AngestellterRepository angestellterRepository;
+    private FirmaRepository firmaRepository;
+    private AdresseRepository adresseRepository;
 
-    public AngestellterService(KundeRepository kundeRepository, AngestellterRepository angestellterRepository){
+    public AngestellterService(KundeRepository kundeRepository, AngestellterRepository angestellterRepository, FirmaRepository firmaRepository, AdresseRepository adresseRepository){
         this.kundeRepository = kundeRepository;
         this.angestellterRepository = angestellterRepository;
+        this.firmaRepository = firmaRepository;
+        this.adresseRepository = adresseRepository;
     }
 
     public void createKunde(Kunde newKunde){
