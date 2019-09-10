@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+</head>
+<body>
+    <h1>Eigener Login</h1>
+
+    <form th:action="@{/checkLogin}" th:object="${toVerify}" method="post">
+        <label for="usernameId">Username</label>:
+        <input type="text" id="usernameId" th:field="*{username}"/> <br />
+        <label for="passwordId">Password</label>:
+        <input type="password" id="passwordId" th:field="*{password}"/> <br />
+        <input type="submit" value="Log in" />
+    </form>
+
+</body>
+</html>

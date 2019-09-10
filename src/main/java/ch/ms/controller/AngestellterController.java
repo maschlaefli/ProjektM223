@@ -46,4 +46,10 @@ public class AngestellterController {
         angestellterService.deleteKunde(id);
         return "redirect:/userlist";
     }
+
+    @GetMapping("/showKunde")
+    public String showKunde(@PathVariable int id, Model model){
+        model.addAttribute("selectedKunde", angestellterService.getKunde(id));
+        return "showUser";
+    }
 }

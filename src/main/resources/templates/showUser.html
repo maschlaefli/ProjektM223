@@ -7,7 +7,7 @@
 <body>
 <h1>Benutzer erstellen</h1>
 
-    <form action="#" th:action="@{/createKunde}" th:object="${newKunde}" method="post">
+    <form action="#" th:action="@{/updateKunde}" th:object="${selectedKunde}" method="post">
         <label for="nameId">Name:</label>
         <input type="text" id="nameId" th:field="*{name}">
 
@@ -20,7 +20,7 @@
         <label for="alterId">Alter:</label>
         <input type="text" id="alterId" th:field="*{alter}">
 
-        <input type="submit" value="Hinzufügen">
+        <input type="submit" value="Bearbeiten">
     </form>
 
 </body>

@@ -1,5 +1,6 @@
 package ch.ms.service;
 
+import ch.ms.model.Angestellter;
 import ch.ms.model.Kunde;
 import ch.ms.repository.AdresseRepository;
 import ch.ms.repository.AngestellterRepository;
@@ -29,15 +30,28 @@ public class AngestellterService {
         kundeRepository.save(newKunde);
     }
 
-    public Optional<Kunde> getKunde(int id){
-        return kundeRepository.findById(id);
-    }
-
     public List<Kunde> getKunden(){
         return kundeRepository.findAll();
     }
 
+    public Optional<Kunde> getKunde(int id){
+        return kundeRepository.findById(id);
+    }
+
     public void deleteKunde(int id){
         kundeRepository.deleteById(id);
+    }
+
+    public String validate(Angestellter angestellter){
+
+        List<Angestellter> angestellteListe = angestellterRepository.findAll();
+
+        for(Angestellter value : angestellteListe){
+            if(value.getUsername().equals(angestellter.getUsername()) && value.getPassword().equals(angestellter.getPassword())){
+                System.out.println("valid");
+                return "redirect:/userlist";
+            }
+        }
+        return "redirect:/login";
     }
 }
