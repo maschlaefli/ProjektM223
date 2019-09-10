@@ -25,13 +25,16 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
         http.cors().and()
                 .csrf().disable()
                 .authorizeRequests()
-                .antMatchers("/api/public").permitAll()
+                .antMatchers("/login").permitAll();
+                /*
                 .anyRequest().authenticated()
                 .and()
                 .addFilter(new JwtAuthenticationFilter(authenticationManager()))
                 .addFilter(new JwtAuthorizationFilter(authenticationManager()))
                 .sessionManagement()
                 .sessionCreationPolicy(SessionCreationPolicy.STATELESS);
+                */
+
     }
 
     @Override

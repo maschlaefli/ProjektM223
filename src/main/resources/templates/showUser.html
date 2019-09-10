@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Benutzer erstellen</title>
+</head>
+<body>
+<h1>Benutzer erstellen</h1>
+
+    <form action="#" th:action="@{/createKunde}" th:object="${newKunde}" method="post">
+        <label for="nameId">Name:</label>
+        <input type="text" id="nameId" th:field="*{name}">
+
+        <label for="nachnameId">Nachname:</label>
+        <input type="text" id="nachnameId" th:field="*{nachname}">
+
+        <label for="usernameId">Username:</label>
+        <input type="text" id="usernameId" th:field="*{username}">
+
+        <label for="alterId">Alter:</label>
+        <input type="text" id="alterId" th:field="*{alter}">
+
+        <input type="submit" value="Hinzufügen">
+    </form>
+
+</body>
+</html>

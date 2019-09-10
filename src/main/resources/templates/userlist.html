@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Kundenliste | Benutzerverwaltung</title>
+</head>
+<body>
+    <h1>Kundenliste</h1>
+    <a href="/userlist/createUser">Kunde erstellen</a>
+    <div th:switch="${kundenliste}">
+        <h4 th:case="null">Keine Kunden vorhanden</h4>
+        <table th:case="*">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Nachname</th>
+                    <th>Username</th>
+                    <th>Alter</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="kunde : ${kundenliste}">
+                    <form method="post" th:action="@{/deleteKunde/{id}(id=${kunde.id})}">
+                    <td th:text="${kunde.name}"></td>
+                    <td th:text="${kunde.nachname}"></td>
+                    <td th:text="${kunde.username}"></td>
+                    <td th:text="${kunde.alter}"></td>
+                    <td> <button type="submit">Löschen</button> </td>
+                    </form>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
