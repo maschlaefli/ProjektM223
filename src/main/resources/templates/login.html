@@ -8,9 +8,9 @@
     <h1>Eigener Login</h1>
 
     <form th:action="@{/checkLogin}" th:object="${toVerify}" method="post">
-        <label for="usernameId">Username</label>:
+        <label for="usernameId">Benutzername</label>:
         <input type="text" id="usernameId" th:field="*{username}"/> <br />
-        <label for="passwordId">Password</label>:
+        <label for="passwordId">Passwort</label>:
         <input type="password" id="passwordId" th:field="*{password}"/> <br />
         <input type="submit" value="Log in" />
     </form>
