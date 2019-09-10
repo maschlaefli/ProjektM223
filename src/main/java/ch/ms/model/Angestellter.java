@@ -1,12 +1,11 @@
 package ch.ms.model;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
+import javax.persistence.*;
 
 @Entity
 public class Angestellter extends User{
 
-    @Column(nullable = false)
+    @Column
     private int angestelltSeit;
 
     public int getAngestelltSeit() {

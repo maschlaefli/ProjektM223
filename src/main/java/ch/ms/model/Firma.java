@@ -1,18 +1,18 @@
 package ch.ms.model;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
+import javax.persistence.*;
 
 @Entity
 public class Firma {
-
-    @Column(nullable = false)
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
     @Column(nullable = false)
     private String name;
 
-    @Column(nullable = false)
+    @OneToOne
+    @JoinColumn(name = "adresse_id")
     private Adresse adresse;
 
     public int getId() {

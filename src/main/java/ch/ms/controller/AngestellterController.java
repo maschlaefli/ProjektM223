@@ -8,7 +8,6 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/userlist")
 public class AngestellterController {
 
     private AngestellterService angestellterService;
@@ -17,25 +16,37 @@ public class AngestellterController {
         this.angestellterService = angestellterService;
     }
 
-    @GetMapping
+    @GetMapping("/userlist/getUser")
     public String getKunde(@PathVariable int id, Model model){
-        model.addAttribute("user", angestellterService.getKunde(id));
+        //model.addAttribute("user", angestellterService.getKunde(id));
         return "/profile";
     }
 
-    @GetMapping
-    public void getKunden(){
+    @GetMapping("/userlist")
+    public String getKunden(){
+        return null;
     }
 
-    @PostMapping
-    public void updateKunde(){}
+    @PostMapping("/userlist/updateUser")
+    public String updateKunde(){
+        return null;
 
-    @DeleteMapping
-    public void deleteKunde(){}
+    }
 
-    @PostMapping
-    public void createUser(){}
+    @DeleteMapping("/userlist/deleteUser")
+    public String deleteKunde(){
+        return null;
 
-    @PostMapping
-    public void logout(){}
+    }
+
+    @PostMapping("/userlist/createUser")
+    public String createUser(){
+        return null;
+
+    }
+
+    @PostMapping("/userlist/logout")
+    public String logout(){
+        return null;
+    }
 }

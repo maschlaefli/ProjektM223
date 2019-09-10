@@ -2,7 +2,7 @@ package ch.ms.model;
 
 import javax.persistence.*;
 
-
+@MappedSuperclass
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -20,11 +20,12 @@ public class User {
     @Column(nullable = false)
     private String password;
 
-    @Column(nullable = false)
+    @Column(nullable = false, name = "alter_")
     private int alter;
 
-    @Column(nullable = false)
-    Adresse adresse;
+    @ManyToOne
+    @JoinColumn(name = "adresse_id")
+    private Adresse adresse;
 
     public int getId() {
         return id;

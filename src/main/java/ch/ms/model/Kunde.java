@@ -1,10 +1,12 @@
 package ch.ms.model;
 
-import javax.persistence.Column;
+import javax.persistence.*;
 
+@Entity
 public class Kunde extends User{
 
-    @Column(nullable = false)
+    @ManyToOne
+    @JoinColumn(name = "firma_id", nullable = true)
     private Firma firma;
 
     public Firma getFirma() {
