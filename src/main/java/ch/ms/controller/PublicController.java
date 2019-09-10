@@ -13,6 +13,11 @@ public class PublicController {
 
     private AngestellterService angestellterService;
 
+    @GetMapping("/")
+    public String getMessage(){
+        return "login";
+    }
+
     public PublicController(AngestellterService angestellterService){
         this.angestellterService = angestellterService;
     }

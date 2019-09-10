@@ -17,11 +17,6 @@ public class AngestellterController {
         this.angestellterService = angestellterService;
     }
 
-    @GetMapping("/")
-    public String getMessage(){
-        return "userlist";
-    }
-
     @GetMapping("/userlist")
     public String getKunden(Model model){
         model.addAttribute("kundenliste", angestellterService.getKunden());
