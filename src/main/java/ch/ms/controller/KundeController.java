@@ -9,15 +9,17 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 public class KundeController {
-
+    //Zugriff auf Servide
     private KundeService kundeService;
 
+    //Eigenes Profil ins Model hinzufügen
     @GetMapping("/profile")
     public String getProfile(int id, Model model){
         model.addAttribute("myProfile", kundeService.getKunde(id));
         return "profile";
     }
 
+    //Update Profile
     @PostMapping("/updateProfile")
     public void updateProfile(){}
 
